@@ -1,0 +1,28 @@
+{
+  "name": "desafio-accenture",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "test:e2e": "cypress run --spec \"cypress/e2e/e2e/**/*.feature\"",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.feature\"",
+    "cy:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/e2e/[filepath].{js,ts}",
+      "cypress/e2e/[filepath]/**/*.{js,ts}",
+      "cypress/e2e/step_definitions/**/*.{js,ts}"
+    ]
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^28.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "@faker-js/faker": "^10.6.0",
+    "cypress": "^15.21.1"
+  }
+}

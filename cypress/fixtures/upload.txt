@@ -1,0 +1,1 @@
+Arquivo de texto usado como upload de teste no Practice Form do DemoQA.
