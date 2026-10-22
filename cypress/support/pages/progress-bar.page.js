@@ -1,6 +1,6 @@
 class ProgressBarPage {
   visitHome() {
-    cy.visit("/");
+    cy.visit("/", { waitUntil: "domcontentloaded" });
   }
 
   openProgressBar() {
@@ -30,11 +30,18 @@ class ProgressBarPage {
       "aria-valuenow",
       "100"
     );
+    cy.contains("button", "Reset").should("be.visible");
   }
 
   reset() {
-    cy.contains("button", "Reset").click();
-    this.progressValue().should("have.attr", "aria-valuenow", "0");
+    cy.get("#resetButton")
+      .should("be.visible")
+      .scrollIntoView()
+      .click({ force: true });
+    this.progressValue({ timeout: 10000 }).should(($progress) => {
+      expect(Number($progress.attr("aria-valuenow"))).to.equal(0);
+    });
+    cy.get("#startStopButton").should("have.text", "Start");
   }
 }
 

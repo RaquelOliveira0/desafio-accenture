@@ -1,6 +1,6 @@
 class SortablePage {
   visitHome() {
-    cy.visit("/");
+    cy.visit("/", { waitUntil: "domcontentloaded" });
   }
 
   openSortable() {

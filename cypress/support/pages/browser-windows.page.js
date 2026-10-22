@@ -1,6 +1,6 @@
 class BrowserWindowsPage {
   visitHome() {
-    cy.visit("/");
+    cy.visit("/", { waitUntil: "domcontentloaded" });
   }
 
   openBrowserWindows() {
@@ -30,7 +30,7 @@ class BrowserWindowsPage {
       const requestedUrl = windowOpen.firstCall.args[0];
       const destination = new URL(requestedUrl, Cypress.config("baseUrl")).toString();
 
-      cy.visit(destination);
+      cy.visit(destination, { waitUntil: "domcontentloaded" });
     });
   }
 

@@ -12,7 +12,7 @@ const hobbySelectors = {
 
 class PracticeFormPage {
   visitHome() {
-    cy.visit("/");
+    cy.visit("/", { waitUntil: "domcontentloaded" });
   }
 
   openPracticeForm() {

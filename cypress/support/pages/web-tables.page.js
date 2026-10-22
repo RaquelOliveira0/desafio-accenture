@@ -1,6 +1,6 @@
 class WebTablesPage {
   visitHome() {
-    cy.visit("/");
+    cy.visit("/", { waitUntil: "domcontentloaded" });
   }
 
   openWebTables() {
